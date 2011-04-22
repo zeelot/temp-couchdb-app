@@ -2,11 +2,11 @@
 RewriteEngine On
 
 # Set the project name to use through the rest of this file
-RewriteRule .* - [E=PROJECTNAME:example.com]
+RewriteRule .* - [E=PROJECTNAME:temp-couchdb-app]
 
-# Force to always use the HTTPS domain without the 'www' prefix (ssl)
+# Force to always use the domain without the 'www' prefix (non-ssl)
 RewriteCond %{ENV:PROJECTNAME},%{HTTP_HOST} ^([^,]+),www\.\1
-RewriteRule ^(.*)$ https://%{ENV:PROJECTNAME}/$1 [R=301,L]
+RewriteRule ^(.*)$ http://%{ENV:PROJECTNAME}/$1 [R=301,L]
 
 # Set Development environment based on domain
 RewriteCond %{HTTP_HOST} ^dev.vm$
@@ -48,31 +48,6 @@ RewriteRule .* - [E=REWRITEBASE:/%{ENV:PROJECTNAME}/]
 # Staging Installation directory
 RewriteCond %{ENV:KOHANA_ENV} staging
 RewriteRule .* - [E=REWRITEBASE:/%{ENV:PROJECTNAME}/]
-
-# Force to always use https for Production environment
-RewriteCond %{ENV:KOHANA_ENV} production
-RewriteCond %{HTTPS} !=on
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{ENV:REWRITEBASE}$1 [R=301,L]
-
-# Force to always use https for Beta environment
-RewriteCond %{ENV:KOHANA_ENV} beta
-RewriteCond %{HTTPS} !=on
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{ENV:REWRITEBASE}$1 [R=301,L]
-
-# Force to always use https for Development environment
-RewriteCond %{ENV:KOHANA_ENV} development
-RewriteCond %{HTTPS} !=on
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{ENV:REWRITEBASE}$1 [R=301,L]
-
-# Force to always use https for QA environment
-RewriteCond %{ENV:KOHANA_ENV} qa
-RewriteCond %{HTTPS} !=on
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{ENV:REWRITEBASE}$1 [R=301,L]
-
-# Force to always use https for Staging environment
-RewriteCond %{ENV:KOHANA_ENV} staging
-RewriteCond %{HTTPS} !=on
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{ENV:REWRITEBASE}$1 [R=301,L]
 
 # Protect hidden files from being viewed
 <Files .*>

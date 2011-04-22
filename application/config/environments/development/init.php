@@ -1,8 +1,7 @@
 <?php defined('SYSPATH') OR die('No direct access allowed.');
 
 return array(
-	// @TODO: change this to be project-specific
-	'base_url'    => 'https://dev.vm/projecttemplate/',
+	'base_url'    => 'https://dev.vm/temp-couchdb-app/',
 	'index_file'  => '',
 	'charset'     => 'utf-8',
 	'cache_dir'   => APPPATH.'cache',
