@@ -7,7 +7,6 @@ return array(
 	'csrf'               => MODPATH.'csrf',
 	'database'           => MODPATH.'database',
 	'email'              => MODPATH.'email',
-	'errors'             => MODPATH.'errors',
 	'git'                => MODPATH.'git',
 	'image'              => MODPATH.'image',
 	'kostache'           => MODPATH.'kostache',
