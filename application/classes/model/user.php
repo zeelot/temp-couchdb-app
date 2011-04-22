@@ -136,6 +136,11 @@ class Model_User extends Model {
 
 	public function __get($key)
 	{
-		return $this->_document[$key];
+		return Arr::get($this->_document, $key);
+	}
+
+	public function document()
+	{
+		return $this->_document;
 	}
 }

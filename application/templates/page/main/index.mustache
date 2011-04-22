@@ -1,1 +1,36 @@
-{{#i18n}}Hello New World!{{/i18n}}
+{{#auth}}
+{{#loaded}}
+<ul>
+	<li>
+		{{#github}}
+			<h2>GitHub Account</h2>
+			<ul>
+				<li><strong>ID:</strong> {{id}}</li>
+				<li><strong>Login:</strong> {{login}}</li>
+				<li><strong>Name:</strong> {{name}}</li>
+				<li><strong>Email:</strong> {{email}}</li>
+			</ul>
+		{{/github}}
+		{{^github}}
+		You are not yet linked to GitHub. <strong><a href="{{#log_in_urls}}{{github}}{{/log_in_urls}}">Click Here</a></strong>
+		{{/github}}
+	</li>
+	<li>
+		{{#facebook}}
+			<h2>FaceBook Account</h2>
+			<ul>
+				<li><strong>ID:</strong> {{id}}</li>
+				<li><strong>Username:</strong> {{username}}</li>
+				<li><strong>First Name:</strong> {{first_name}}</li>
+				<li><strong>Last Name:</strong> {{last_name}}</li>
+				<li><strong>Link:</strong> <a href="{{link}}">{{link}}</a></li>
+				<li><strong>Email:</strong> {{email}}</li>
+			</ul>
+		{{/facebook}}
+		{{^facebook}}
+		You are not yet linked to FaceBook. <strong><a href="{{#log_in_urls}}{{facebook}}{{/log_in_urls}}">Click Here</a></strong>
+		{{/facebook}}
+	</li>
+</ul>
+{{/loaded}}
+{{/auth}}
