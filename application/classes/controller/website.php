@@ -27,6 +27,10 @@ abstract class Controller_Website extends Controller {
 			try
 			{
 				$this->view = Kostache::factory('page/'.$controller_path);
+
+				// Try Logging In
+				$this->auth = new Model_User;
+				$this->auth->find(Cookie::get('auth'));
 			}
 			catch (Kohana_View_Exception $x)
 			{
@@ -53,6 +57,7 @@ abstract class Controller_Website extends Controller {
 			if ($this->view === NULL)
 				throw new Kohana_View_Exception('There was no View created for this request.');
 
+			$this->view->auth = $this->auth;
 			$this->response->body($this->view);
 		}
 	}

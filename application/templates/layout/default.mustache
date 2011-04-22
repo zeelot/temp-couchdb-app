@@ -9,6 +9,17 @@
 
 </head>
 <body>
+	{{#auth}}
+	<ul>
+		{{#loaded}}
+		<li><a href="{{log_out_url}}">Log Out</a></li>
+		{{/loaded}}
+		{{^loaded}}
+		
+		{{#log_in_urls}}<li><a href="{{facebook}}">Log In With FaceBook</a></li>{{/log_in_urls}}
+		{{/loaded}}
+	</ul>
+	{{/auth}}
 	<h1>{{title}}</h1>
 	{{#notices}}
 		<div class="notice {{type}}">{{message}}</div>

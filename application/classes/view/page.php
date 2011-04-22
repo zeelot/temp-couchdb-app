@@ -41,6 +41,24 @@ abstract class View_Page extends View_Layout {
 		return $data;
 	}
 
+	public function log_out_url()
+	{
+		return Route::url('default', array(
+			'controller' => 'main',
+			'action'     => 'log_out',
+		));
+	}
+
+	public function log_in_urls()
+	{
+		return array(
+			'facebook' => Route::url('default', array(
+				'controller' => 'main',
+				'action'     => 'log_in_with_facebook',
+			)),
+		);
+	}
+
 	public function profiler()
 	{
 		return View::factory('profiler/stats');
