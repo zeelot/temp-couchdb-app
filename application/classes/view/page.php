@@ -56,6 +56,14 @@ abstract class View_Page extends View_Layout {
 				'controller' => 'main',
 				'action'     => 'log_in_with_facebook',
 			)),
+			'github' => Route::url('default', array(
+				'controller' => 'main',
+				'action'     => 'log_in_with_github',
+			)),
+			'twitter' => Route::url('default', array(
+				'controller' => 'main',
+				'action'     => 'log_in_with_twitter',
+			)),
 		);
 	}
 
